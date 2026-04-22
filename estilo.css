@@ -280,20 +280,36 @@ header p {
         transform: scale(1);
     }
 }
-
-/* Responsive */
+/* Responsive para teléfonos */
 @media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
     .contenedor {
         padding: 15px;
+        border-radius: 20px;
     }
     
     header h1 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+    }
+    
+    header p {
+        font-size: 0.9rem;
     }
     
     .panel-info {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
+        padding: 12px;
+    }
+    
+    .puntaje, .temporizador, .movimientos {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+        width: 100%;
+        text-align: center;
     }
     
     .tablero {
@@ -302,10 +318,49 @@ header p {
     }
     
     .contenido-tarjeta {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     .logo-lenguaje {
         font-size: 1.2rem !important;
+    }
+    
+    .ranking-vivo {
+        padding: 15px;
+    }
+    
+    .ranking-vivo h3 {
+        font-size: 1rem;
+    }
+    
+    .ranking-vivo li {
+        font-size: 0.9rem;
+        padding: 5px 0;
+    }
+    
+    .btn-reiniciar, #btnSalir {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Pantalla de login */
+    .login-contenedor, .espera-contenedor {
+        padding: 25px 20px;
+        width: 95%;
+    }
+    
+    .login-contenedor h2, .espera-contenedor h2 {
+        font-size: 1.3rem;
+    }
+    
+    #inputNombre {
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    /* Lista de jugadores */
+    .jugador-item {
+        padding: 8px;
+        font-size: 0.9rem;
     }
 }

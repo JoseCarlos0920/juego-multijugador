@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ========== PANTALLA LOGIN ========== */
+.pantalla-login, .pantalla-espera {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.login-contenedor, .espera-contenedor {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.login-contenedor h2, .espera-contenedor h2 {
+    color: #2d3748;
+    margin-bottom: 20px;
+}
+
+#inputNombre {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-login, .btn-iniciar, #btnSalir {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+}
+
+.btn-iniciar {
+    background: #48bb78;
+    margin: 20px 0;
+}
+
+.btn-iniciar:hover {
+    background: #38a169;
+    transform: scale(1.02);
+}
+
+.nota {
+    margin-top: 15px;
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+/* ========== SALA DE ESPERA ========== */
+.lista-jugadores {
+    background: #f7fafc;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 20px 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.jugador-item {
+    padding: 10px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.jugador-anfitrion {
+    color: #ecc94b;
+    font-weight: bold;
+}
+
+/* ========== JUEGO PRINCIPAL ========== */
+.contenedor {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    color: #2d3748;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #718096;
+    font-size: 1.1rem;
+}
+
+.panel-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #edf2f7;
+    padding: 15px 25px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+}
+
+.puntaje, .temporizador {
+    background: #4a5568;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.temporizador {
+    background: #e53e3e;
+}
+
+.movimientos {
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Tarjetas */
+.tarjeta {
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(145deg, #ffffff, #f7fafc);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding: 10px;
+    border: 3px solid transparent;
+}
+
+.tarjeta:hover:not(.acertada) {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta.volteada {
+    background: linear-gradient(145deg, #fefcbf, #f6e05e);
+    border-color: #ecc94b;
+}
+
+.tarjeta.acertada {
+    background: linear-gradient(145deg, #c6f6d5, #9ae6b4);
+    border-color: #48bb78;
+    cursor: default;
+    opacity: 0.8;
+}
+
+.contenido-tarjeta {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: #2d3748;
+    word-wrap: break-word;
+}
+
+.logo-lenguaje {
+    font-size: 1.8rem !important;
+    font-weight: 700;
+}
+
+/* ========== RANKING ========== */
+.ranking-vivo {
+    background: #2d3748;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 0;
+    color: white;
+}
+
+.ranking-vivo h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #f6e05e;
+}
+
+.ranking-vivo ol {
+    padding-left: 30px;
+}
+
+.ranking-vivo li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #4a5568;
+}
+
+.ranking-vivo li:last-child {
+    border-bottom: none;
+}
+
+/* ========== MENSAJES Y BOTONES ========== */
+.mensaje-victoria {
+    text-align: center;
+    background: linear-gradient(145deg, #c6f6d5, #9ae6b4);
+    color: #22543d;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: none;
+    margin-top: 20px;
+}
+
+.mensaje-victoria.mostrar {
+    display: block;
+    animation: aparecer 0.5s ease;
+}
+
+#btnSalir {
+    margin-top: 15px;
+    background: #718096;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .contenedor {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 1.3rem;
+    }
+    
+    .panel-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .tablero {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .contenido-tarjeta {
+        font-size: 1rem;
+    }
+    
+    .logo-lenguaje {
+        font-size: 1.2rem !important;
+    }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Juego de memoria Multijugador | Cloud Computing </title>
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+</head>
+<body>
+    <!-- Pantalla de Login -->
+    <div class="pantalla-login" id="pantallaLogin">
+        <div class="login-contenedor">
+            <h2>Ingresa tu nombre</h2>
+            <input type="text" id="inputNombre" placeholder="Ej: Carlos" maxlength="15">
+            <button class="btn-login" id="btnIngresar">Ingresar a la sala</button>
+            <p class="nota">Espera a que el anfitrión inicie el juego</p>
+        </div>
+    </div>
+
+    <!-- Sala de Espera -->
+    <div class="pantalla-espera" id="pantallaEspera" style="display: none;">
+        <div class="espera-contenedor">
+            <h2>Sala de Espera</h2>
+            <p>Jugadores conectados:</p>
+            <div class="lista-jugadores" id="listaJugadores"></div>
+            <div class="panel-anfitrion" id="panelAnfitrion" style="display: none;">
+                <button class="btn-iniciar" id="btnIniciarJuego">▶ INICIAR JUEGO PARA TODOS</button>
+                <p class="nota">Tiempo: 1:30 min</p>
+            </div>
+            <p class="nota" id="mensajeEspera">Esperando al anfitrión...</p>
+        </div>
+    </div>
+
+    <!-- Juego Principal -->
+    <div class="contenedor" id="juegoPrincipal" style="display: none;">
+        <header>
+            <h1>💻📄 Memoriza : Cloud Computing </h1>
+            <p>Empareja cada elemento con su respectiva imagen</p>
+        </header>
+
+        <div class="panel-info">
+            <div class="puntaje">
+                <span class="pares-encontrados">0</span>/<span class="total-pares">6</span> pares
+            </div>
+            <div class="temporizador" id="temporizador">
+                ⏱️ 01:30
+            </div>
+            <div class="movimientos">
+                Movimientos: <span class="contador-movimientos">0</span>
+            </div>
+        </div>
+
+        <div class="tablero" id="tableroJuego"></div>
+
+        <!-- Ranking en vivo -->
+        <div class="ranking-vivo">
+            <h3>🏆 Top 5</h3>
+            <ol id="listaRanking">
+                <li>---</li>
+                <li>---</li>
+                <li>---</li>
+                <li>---</li>
+                <li>---</li>
+            </ol>
+        </div>
+
+        <div class="mensaje-victoria" id="mensajeVictoria">
+            Que wena, te ganaste un sello
+        </div>
+        
+        <button class="btn-reiniciar" id="btnSalir">🚪 Salir / Volver a jugar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
